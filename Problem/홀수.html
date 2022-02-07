@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let ans = 0;
+        for (i in arr) {
+          if (arr[i] % 2 === 1) {
+            ans += arr[i];
+          }
+        }
+        return ans;
+      }
+
+      arr = [12, 77, 38, 41, 53, 92, 85, 23];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
