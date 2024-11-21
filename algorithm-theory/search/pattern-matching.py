@@ -2,6 +2,9 @@ scan = -1
 
 # (A*B+AC)D
 ch = [' ', 'A', ' ', 'B', ' ', ' ', 'A', 'C', 'D', ' ']
+
+# (A + B)*C
+
 next1 = [5, 2, 3, 4, 8, 6, 7, 8, 9, 0]
 next2 = [5, 2, 1, 4, 8, 2, 7, 8, 9, 0]
 
@@ -49,33 +52,6 @@ class Deque:
                 print(self.deque[i], end=' ')
         print()
 
-
-# match(t[])
-#   dq ← Deque(100); 
-#   j ← 0; 
-#   N ← t의 길이 – 1;
-#   state ← next1[0];
-#   dq.insertLast(scan);
-#   while (state ≠ 0) {
-#     case {
-#       state = scan: 
-#         j ← j + 1;
-#         if (dq.isEmpty()) then dq.insertFirst(next1[0]);
-#         dq.insertLast(scan);
-#       ch[state] = t[j]: 
-#         dq.insertLast(next1[state]);
-#       ch[state] = ‘ ’: 
-#         n1 ← next1[state];
-#         n2 ← next2[state];
-#         dq.insertFirst(n1);
-#         if (n1 ≠ n2) then dq.insertFirst(n2);
-#       }
-#     if (dq.isEmpty()) then return j;
-#     if (j > N) then return 0
-#     state ← dq.deleteFirst()
-#     if (dq.checkDq()) then state ← dq.deleteFirst();
-#   return j-1;
-# end match()
 def match(t):
     dq = Deque(100)
     j = 0
@@ -112,6 +88,7 @@ i = 0
 N = len(text)-1
 while True:
     pos = match(text[i:])
+    
     if pos <= 0:
         break
     pos += previous
